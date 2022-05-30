@@ -30,10 +30,13 @@ void NewUserWindow::on_cadastra_btn_clicked()
 
     User user(nome, sobrenome, nickname, senha, cpf, data);
     DataBase user_db;
-
-    if(user_db.insert(user))
+    if(user_db.search("nickname", nickname)!=nullptr)
+        QMessageBox::information(this, "Cadastro", "Usuário já cadastrado");
+    else if(user_db.search("cpf", cpf)!=nullptr)
+        QMessageBox::information(this, "Cadastro", "CPF já cadastrado");
+    else if(user_db.insert(user))
     {
-        QMessageBox::information(this, "", "Usuário cadastrado com sucesso");
+        QMessageBox::information(this, "Cadastro", "Usuário cadastrado com sucesso");
         this->close();
     }
     else
