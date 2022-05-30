@@ -35,10 +35,10 @@ void UpdateUserWindow::on_update_btn_clicked()
     bool b;
     DataBase db;
 
-    if(db.search("cpf", cpf) != nullptr)
-        QMessageBox::information(this, "Erro","CPF já cadastrado!");
-    else if (db.search("nickname", nickname) != nullptr)
-        QMessageBox::information(this,"Erro","Usuário já cadastrado!");
+    if(cpf!=old_user->getCPF() && db.search("cpf", cpf) != nullptr)
+            QMessageBox::information(this, "Erro","CPF já cadastrado!");
+    else if (nickname!=old_user->getNickname() && db.search("nickname", nickname) != nullptr)
+            QMessageBox::information(this,"Erro","Usuário já cadastrado!");
     else
     {
         User user(nome,sobrenome,nickname,senha,cpf,data);

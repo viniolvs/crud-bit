@@ -16,12 +16,12 @@ DataBase::~DataBase()
 void DataBase::addDataBase()
 {
     data_base = QSqlDatabase::addDatabase("QSQLITE");
-    data_base.setDatabaseName("/home/vinicius/Documents/Facul/Programas/Projects/projeto-bit/users.db");
+    data_base.setDatabaseName("/home/vinicius/Documents/Facul/Programas/Projects/projeto-bit/CRUD/users.db");
 }
 
 void DataBase::removeDataBase()
 {
-    data_base.removeDatabase("/home/vinicius/Documents/Facul/Programas/Projects/projeto-bit/users.db");
+    data_base.removeDatabase("/home/vinicius/Documents/Facul/Programas/Projects/projeto-bit/CRUD/users.db");
 }
 
 bool DataBase::open()
