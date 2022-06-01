@@ -105,7 +105,7 @@ bool DataBase::remove(User user)
     open();
     QSqlQuery query;
     bool b;
-    query.prepare("delete from tb_users where cpf = "+user.getCPF());
+    query.prepare("delete from tb_users where cpf = '"+user.getCPF()+"'");
     b = query.exec();
     query.finish();
     close();
